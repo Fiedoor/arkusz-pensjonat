@@ -13,17 +13,28 @@
     </header>
     <main>
         <div id="left">
-            <a href="index.html">GŁÓWNA</a> <br>
+            <a href="index.html">GŁÓWNA</a>
             <img src="1.jpg" alt="pokoje">
         </div>
         <div id="mid">
-            <a href="cennik.php">CENNIK</a> <br>
+            <a href="cennik.php">CENNIK</a>
             <?php
-            //skrypt
+            $conn = mysqli_connect('localhost', 'root', '', 'wynajem');
+            $q = 'SELECT * FROM pokoje';
+            $res = mysqli_query($conn, $q);
+            echo "<table>";
+            foreach ($res as $row) {
+                echo '<tr>';
+                foreach ($row as $r) {
+                    echo "<td>" . $r . "</td>";
+                }
+                echo '</tr>';
+            }
+            echo "</table>";
             ?>
         </div>
         <div id="right">
-            <a href="kalkulator.html">KALKULATOR</a> <br>
+            <a href="kalkulator.html">KALKULATOR</a>
             <img src="3.jpg" alt="pokoje">
         </div>
     </main>
